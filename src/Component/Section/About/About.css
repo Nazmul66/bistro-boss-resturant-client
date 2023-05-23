@@ -1,0 +1,5 @@
+.about-content{
+    background: url("../../../../public/assets/home/chef-service.jpg") center top no-repeat;
+    background-size: cover;
+    background-attachment: fixed;
+}

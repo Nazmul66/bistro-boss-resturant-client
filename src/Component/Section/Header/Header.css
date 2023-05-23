@@ -1,0 +1,52 @@
+header{
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    z-index: 90;
+    background-color: rgba(0,0,0,0.50);
+}
+.logoImg{
+    width: 180px;
+    display: block;
+}
+.menubar ul li a{
+    position: relative;
+    font-weight: 500;
+    font-size: 16px;
+    color: #FFF;
+    margin-right: 35px; 
+    transition: all 0.3s ease-in-out;
+}
+.menubar ul li a:Hover{
+    color: #EEFF25;
+}
+
+
+@media (min-width: 320px) and (max-width: 576px){
+    .logoImg{
+        width: 140px;
+        display: block;
+    }
+    .navbar{
+        position: fixed;
+        width: 100%;
+        height: 100vh;
+        top: 0;
+        left: 100%;
+        right: 0;
+        z-index: 30;
+        background: linear-gradient(45deg,#43cea2,#185a9d);
+        transition: all 0.2s ease-in-out;
+    }
+    .active{
+        left: 0;
+    }
+
+    .menubar ul li a{
+        margin-right: 0px; 
+        margin-bottom: 25px;
+        display: block;
+        color: #FFF;
+    }
+}

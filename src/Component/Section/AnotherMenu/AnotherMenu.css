@@ -1,0 +1,17 @@
+.anotherMenu{
+    background: url("../../../../public//assets//home/featured.jpg") center top no-repeat;
+    background-size: cover;
+    background-attachment: fixed;
+    position: relative;
+    z-index: 1;
+}
+.anotherMenu::before{
+    position: absolute;
+    content: "";
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: -1;
+    background: rgba(0,0,0,0.65);
+}
