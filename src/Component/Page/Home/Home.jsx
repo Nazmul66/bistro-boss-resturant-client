@@ -6,8 +6,11 @@ import Menu from '../../Section/Menu/Menu';
 import Contact from '../../Section/Contact/Contact';
 import AnotherMenu from '../../Section/AnotherMenu/AnotherMenu';
 import Testimonial from '../../Section/Testimonial/Testimonial';
+import ChangeTitle from '../../../WebsiteTitle/WebsiteTitle';
 
 const Home = () => {
+    ChangeTitle("Home");
+    
     return (
         <div>
             <Banner></Banner>

@@ -1,6 +1,6 @@
 import React from 'react';
 
-const SectionTitle = ({ heading,subHeading }) => {
+const SectionTitle = ({ heading, subHeading }) => {
     return (
         <div className='text-center max-w-[400px] mx-auto'>
             <h3 className='text-[#D99904] text-[16px] leading-6 italic mb-3'>{heading}</h3>

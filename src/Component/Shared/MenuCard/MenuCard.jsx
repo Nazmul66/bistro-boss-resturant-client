@@ -15,6 +15,7 @@ const MenuCard = ({ menu }) => {
             <div className='lg:w-[15%] w-full'>
                <p className='text-[#BB8506] text-[16px] font-medium text-center'>${price}</p>
             </div>
+            
         </div>
     );
 };

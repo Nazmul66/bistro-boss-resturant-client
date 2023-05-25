@@ -13,9 +13,9 @@ header{
 .menubar ul li a{
     position: relative;
     font-weight: 500;
-    font-size: 16px;
+    font-size: 14px;
     color: #FFF;
-    margin-right: 35px; 
+    margin-right: 25px; 
     transition: all 0.3s ease-in-out;
 }
 .menubar ul li a:Hover{
