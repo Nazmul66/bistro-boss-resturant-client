@@ -7,6 +7,7 @@ import { BsGoogle } from 'react-icons/bs';
 import { AuthContext } from '../../../AuthProvider/AuthProvider';
 import { updateProfile } from 'firebase/auth';
 import ChangeTitle from '../../../WebsiteTitle/WebsiteTitle';
+import Swal from 'sweetalert2';
 
 const RegisterPage = () => {
     ChangeTitle("Sign Up");
@@ -19,7 +20,7 @@ const RegisterPage = () => {
          const name = event.target.name.value;
          const email = event.target.email.value;
          const pass = event.target.password.value;
-         console.log(name, email, pass)
+        //  console.log(name, email, pass)
 
          if(email === "" || pass === "" || name === "" ){
             return setError("!!! Please fill up empty form box !!!");
@@ -41,26 +42,47 @@ const RegisterPage = () => {
         .then(result =>{
             const users = result.user;
             console.log(users)
-            updateProfiles(result.user, name)
-            event.target.reset();
-            navigate("/login");
+
+            // update users display name
+            updateProfile(result.user, {
+                displayName: name
+            })
+            .then(() =>{
+                const saveUser = { name: name, email: email }
+                fetch("http://localhost:4000/users", {
+                    method: "POST",
+                    headers:{
+                        "content-type": "application/json"
+                    },
+                    body: JSON.stringify(saveUser)
+                })
+                .then(res => res.json())
+                .then(data => {
+                    console.log(data)
+                    if(data.insertedId){
+                        event.target.reset();
+                        Swal.fire({
+                            title: 'Custom animation with Animate.css',
+                            showClass: {
+                            popup: 'animate__animated animate__fadeInDown'
+                            },
+                            hideClass: {
+                            popup: 'animate__animated animate__fadeOutUp'
+                            }
+                        })                
+                      navigate("/login");
+                    }
+                })
+             })
+             
+             .catch(error =>{
+                setError(error.message);
+             })
         })
         .catch(error =>{
             setError(error.message)
         })
     }
-
-    const updateProfiles = (info, names) =>{
-        updateProfile(info, {
-            displayName: names
-        })
-        .then(() =>{
-            console.log("success")
-         })
-         .catch(error =>{
-            setError(error.message);
-         })
-     }
 
     // Google login
     const handleGoogle = () =>{

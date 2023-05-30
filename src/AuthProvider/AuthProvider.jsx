@@ -10,7 +10,15 @@ export const AuthContext = createContext();
 
 const AuthProvider = ({ children }) => {
     const [loading, setLoading] = useState(true);
-    const [userInfo, setUserInfo] = useState(null);
+    const [userInfo, setUserInfo] = useState({});
+    // ata true false ar upor fact na just, fact holo State jotober change hobe setar upor.
+    // const [change, setChange] = useState(true);
+
+    // // State take change korar jonno fetch take abr refetch koranu hoyese.
+    // // And refetch korar jonno arekta way system ashe seta mileston-12 module 77-4 a
+    // const myRefetch = () =>{
+    //    return setChange(!change);
+    // } 
 
     // create user
      const createUserInfo = (email, password) =>{

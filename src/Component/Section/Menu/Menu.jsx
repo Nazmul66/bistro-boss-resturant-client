@@ -22,8 +22,8 @@ const Menu = () => {
 
                 <div className='grid lg:grid-cols-2 grid-cols-1 gap-x-5 gap-y-10 mb-10'>
                   {
-                     menus.slice(0,6).map(menu => <MenuCard
-                        key={menu._id}
+                     menus.slice(0,6).map((menu, index) => <MenuCard
+                        key={index}
                         menu={menu}
                      ></MenuCard> )
                  }

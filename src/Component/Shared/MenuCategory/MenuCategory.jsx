@@ -18,7 +18,7 @@ const MenuCategory = ({ item, title }) => {
                     </div>
 
                     <div className='text-center mt-16'>
-                        <Link to={`/shop/${title}`} className='text-[#1F2937] uppercase lg:text-[20px] text-[16px] font-medium py-5 lg:px-10 px-5 rounded-lg border-b-[3px] border-[#1F2937]'>ORDER YOUR FAVOURITE FOOD</Link>
+                        <Link to={`/shop/${title || "salad"}`} className='text-[#1F2937] uppercase lg:text-[20px] text-[16px] font-medium py-5 lg:px-10 px-5 rounded-lg border-b-[3px] border-[#1F2937]'>ORDER YOUR FAVOURITE FOOD</Link>
                     </div>
             </div>
         </div>

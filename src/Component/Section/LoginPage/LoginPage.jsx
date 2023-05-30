@@ -10,6 +10,7 @@ import ChangeTitle from '../../../WebsiteTitle/WebsiteTitle';
 
 const LoginPage = () => {
     ChangeTitle("Login");
+    const [disable, setDisable] = useState(true)
     const { signInUser, googleSignIn } = useContext(AuthContext)
     const navigate = useNavigate();
     const location = useLocation();
@@ -51,11 +52,41 @@ const LoginPage = () => {
         .then(result =>{
             const googleUser = result.user;
             console.log(googleUser)
-            navigate(from, { replace : true })
+
+            /// create login user data storage
+            const saveUser = { name: googleUser.displayName, email: googleUser.email }
+            fetch("http://localhost:4000/users", {
+                method: "POST",
+                headers:{
+                    "content-type": "application/json"
+                },
+                body: JSON.stringify(saveUser)
+            })
+            .then(res => res.json())
+            .then(data => {
+                console.log(data)
+                if(data.insertedId){                
+                    navigate(from, { replace : true })
+                }
+            })
+
         })
         .catch(error =>{
             setError(error.message)
         })
+     }
+
+     // captcha validation
+     const validationCaptcha = (e) =>{   
+        const user_captcha_value = e.target.value;
+        console.log(user_captcha_value)
+
+        if (validateCaptcha(user_captcha_value)) {
+            setDisable(false);
+        }
+        else {
+            setDisable(true);
+        }
      }
 
 
@@ -78,18 +109,17 @@ const LoginPage = () => {
                                 <input type="password" name="password" placeholder='Enter Your Password' className='block w-full outline-none border-[2px] border-[#E8E8E8] py-4 rounded-lg px-5 text-[16px] font-normal text-[#000]' />
                             </div>
 
-                            <div className='mb-5 w-full'>
-                                 <LoadCanvasTemplate className="block w-full" />
-                            </div>
-
                             <div className='mb-5'>
-                                <input type="text" name="captcha" placeholder='Type here' className='block w-full outline-none border-[2px] border-[#E8E8E8] py-4 rounded-lg px-5 text-[16px] font-normal text-[#000]' />
+                                <div className='mb-5 w-full'>
+                                    <LoadCanvasTemplate className="block w-full" />
+                                </div>
+                                <input type="text" onBlur={ validationCaptcha } name="captcha" placeholder='Type here' className='block w-full outline-none border-[2px] border-[#E8E8E8] py-4 rounded-lg px-5 text-[16px] font-normal text-[#000]' />
                             </div>
                             
                             <p className='text-[16px] text-red-500 font-bold text-center'>{error}</p>
 
                             <div className='text-center mb-7 mt-7'>
-                                <button className="rounded-md text-white font-semibold py-[12px] px-[40px] bg-[#DBB984] text-[18px] block w-full">Sign In</button>
+                                <button disabled={disable} className="rounded-md text-white font-semibold py-[12px] px-[40px] bg-[#DBB984] text-[18px] block w-full" >Sign In</button>
                             </div>
 
                             <span className='font-semibold block text-[#DBB984] text-[18px] text-center mb-5'>New here? <Link to="/register" className='font-extrabold cursor-pointer'>Create a New Account</Link></span>

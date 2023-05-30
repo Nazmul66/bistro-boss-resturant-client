@@ -30,4 +30,9 @@
  canvas{
     width: 60% !important;
     height: 45px;
+    margin-bottom: 8px;
  }
+ #reload_href {
+    font-weight: 600;
+    margin-left: 10px;
+}
