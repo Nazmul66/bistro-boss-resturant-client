@@ -40,10 +40,10 @@ const Header = () => {
                             <li><Link to="/menu">OUR MENU</Link></li>
                             <li><Link to="/shop/salad">OUR SHOP</Link></li>
                             <li>
-                               <div className='w-[40px] h-[40px] bg-[#006837] flex justify-center items-center rounded-full relative mr-4'>
+                               <Link to="/dashboard/myCart" className='w-[40px] h-[40px] bg-[#006837] flex justify-center items-center rounded-full relative mr-4'>
                                   <HiShoppingCart className='text-[#FFF] text-[20px]' /> 
                                   <span className='text-[#FFF] bg-yellow-500 text-[14px] px-[6px] absolute rounded-full -top-3 -right-1'>{cart?.length || 0}</span>
-                               </div>
+                               </Link>
                             </li>
                             {
                                 userInfo ? <li><button onClick={ handleLogOut } className='font-medium text-[#FFF] text-sm'>LOGOUT</button></li> :

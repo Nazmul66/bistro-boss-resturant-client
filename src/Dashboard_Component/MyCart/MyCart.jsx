@@ -3,8 +3,10 @@ import { RiDeleteBin6Line } from 'react-icons/ri';
 import SectionTitle from '../../Component/Shared/SectionTitle/SectionTitle';
 import Swal from 'sweetalert2';
 import useCart from '../../CustomLoader/useCart';
+import ChangeTitle from '../../WebsiteTitle/WebsiteTitle';
 
 const MyCart = () => {
+    ChangeTitle("Dashboard/MyCart");
     const [ cart, refetch ] = useCart();
 
     const handleDelete = (id) =>{

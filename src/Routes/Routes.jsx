@@ -13,6 +13,9 @@ import MyBooking from "../Dashboard_Component/MyBooking/MyBooking";
 import Payment_history from "../Dashboard_Component/Payment_history/Payment_history";
 import AddReview from "../Dashboard_Component/AddReview/AddReview";
 import ErrorPage from "../ErrorPage/ErrorPage";
+import AllUsers from "../Dashboard_Component/AllUsers/AllUsers";
+import ManageItems from "../Dashboard_Component/ManageItems/ManageItems";
+import Add_item from "../Dashboard_Component/Add_item/Add_item";
 
 const router = createBrowserRouter([
     {
@@ -65,6 +68,18 @@ const router = createBrowserRouter([
          {
             path: "/dashboard/addReview",
             element: <AddReview></AddReview>
+         },
+         {
+            path: "/dashboard/addItems",
+            element: <Add_item></Add_item>
+         },
+         {
+            path: "/dashboard/manageItems",
+            element: <ManageItems></ManageItems>
+         },
+         {
+            path: "/dashboard/allUsers",
+            element: <AllUsers></AllUsers>
          }
       ]
     }

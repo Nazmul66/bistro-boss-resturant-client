@@ -7,8 +7,10 @@ import { FaGithub, FaFacebookF } from 'react-icons/fa';
 import { BsGoogle } from 'react-icons/bs';
 import { AuthContext } from '../../../AuthProvider/AuthProvider';
 import ChangeTitle from '../../../WebsiteTitle/WebsiteTitle';
+import Swal from 'sweetalert2';
 
 const LoginPage = () => {
+    
     ChangeTitle("Login");
     const [disable, setDisable] = useState(true)
     const { signInUser, googleSignIn } = useContext(AuthContext)
@@ -64,8 +66,29 @@ const LoginPage = () => {
             })
             .then(res => res.json())
             .then(data => {
-                console.log(data)
-                if(data.insertedId){                
+                // console.log(data)
+                if(data.insertedId){ 
+                      Swal.fire({
+                        title: 'Successful Login',
+                        showClass: {
+                        popup: 'animate__animated animate__fadeInDown'
+                        },
+                        hideClass: {
+                        popup: 'animate__animated animate__fadeOutUp'
+                        }
+                    })                
+                    navigate(from, { replace : true })
+                }
+                else {
+                    Swal.fire({
+                        title: 'Successful Login',
+                        showClass: {
+                        popup: 'animate__animated animate__fadeInDown'
+                        },
+                        hideClass: {
+                        popup: 'animate__animated animate__fadeOutUp'
+                        }
+                    }) 
                     navigate(from, { replace : true })
                 }
             })

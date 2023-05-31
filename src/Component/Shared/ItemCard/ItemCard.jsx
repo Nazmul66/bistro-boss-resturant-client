@@ -7,7 +7,8 @@ import useCart from '../../../CustomLoader/useCart';
 const ItemCard = ({ items }) => {
     const {image, name, price, recipe, _id} = items;
     const { userInfo } = useContext(AuthContext)
-    const [ refetch ] = useCart();
+    // jokhon refetch korbo tokhon amr destructuring korar jonno je array je koyta data thakbe se guli soho add korte hobe na hole just akta coma use kore rakhte hobe
+    const [ , refetch ] = useCart();
     const navigate = useNavigate();
     const location = useLocation();
 
@@ -23,9 +24,9 @@ const ItemCard = ({ items }) => {
             })
             .then(res => res.json())
             .then(data => {
-                // console.log(data)
+                console.log(data)
+                refetch();
                 if(data.insertedId){
-                    refetch();
                     Swal.fire({
                         position: 'center-center',
                         icon: 'success',
@@ -56,7 +57,10 @@ const ItemCard = ({ items }) => {
 
     return (
         <div className=''>
-            <img src={image} alt="" className='w-full' />
+            <div className='relative'>
+               <img src={image} alt="" className='w-full h-[300px] object-cover' />
+               <span className='font-semibold text-white bg-[#151515] px-3 py-2 absolute top-4 right-4'>${price}</span>
+            </div>
             <div className='bg-[#f3f3f3] p-7'>
                 <h3 className='mt-8 font-semibold text-[24px] text-[##151515] text-center mb-2'>{name}</h3>
                 <p className='text-[#737373] text-[16px]'>{recipe}</p>

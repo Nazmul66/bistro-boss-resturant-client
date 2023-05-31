@@ -2,41 +2,10 @@ import React from 'react';
 import SectionTitle from '../../Component/Shared/SectionTitle/SectionTitle';
 import { RiDeleteBin6Line } from 'react-icons/ri';
 import Swal from 'sweetalert2';
+import ChangeTitle from '../../WebsiteTitle/WebsiteTitle';
 
 const Payment_history = () => {
-
-        // const handleDelete = (id) =>{
-    //     // console.log("hello", id)
-    //     Swal.fire({
-    //         title: 'Are you sure? Do you want to delete',
-    //         text: "You won't be able to revert this!",
-    //         icon: 'warning',
-    //         showCancelButton: true,
-    //         confirmButtonColor: '#3085d6',
-    //         cancelButtonColor: '#d33',
-    //         confirmButtonText: 'Yes, delete it!'
-    //       }).then((result) => {
-    //         if (result.isConfirmed) {
-    //             fetch(`http://localhost:4000/carts/${id}`,{
-    //                 method: "DELETE"
-    //             })
-    //             .then(res => res.json())
-    //             .then(data => {
-    //                 // console.log(data)
-    //                 if(data.deletedCount > 0){
-    //                     refetch();
-    //                     Swal.fire(
-    //                         'Deleted!',
-    //                         'Your item has been deleted.',
-    //                         'success'
-    //                         )
-    //                 }
-    //             })
-    //         }
-    //       })
-    // }
-
-    // const total = cart.reduce(( sum, item ) => item.price + sum, 0)
+    ChangeTitle("Dashboard/Payment history");
 
     return (
         <div className='py-10 px-5 bg-[#F6F6F6]'>

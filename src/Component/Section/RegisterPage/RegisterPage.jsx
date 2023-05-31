@@ -62,7 +62,7 @@ const RegisterPage = () => {
                     if(data.insertedId){
                         event.target.reset();
                         Swal.fire({
-                            title: 'Custom animation with Animate.css',
+                            title: 'Successful Login',
                             showClass: {
                             popup: 'animate__animated animate__fadeInDown'
                             },

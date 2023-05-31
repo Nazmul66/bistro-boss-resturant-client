@@ -1,15 +1,22 @@
 import React, { useState } from 'react'
 import './Dashboard.css'
-import { Link, Outlet } from 'react-router-dom';
+import { Link, Outlet, useLocation } from 'react-router-dom';
 import { GiWallet, GiHamburgerMenu } from 'react-icons/gi';
 import { HiShoppingCart } from 'react-icons/hi';
-import { FaCommentDots, FaShoppingBag } from 'react-icons/fa';
+import { FaBook, FaCommentDots, FaShoppingBag, FaUsers, FaUtensils } from 'react-icons/fa';
 import { BsFillHouseDoorFill, BsFillCalendarWeekFill, BsCalendar2CheckFill, BsFillEnvelopeFill } from 'react-icons/bs';
-import { AiOutlineMenu } from 'react-icons/ai';
+import { AiOutlineBars, AiOutlineMenu } from 'react-icons/ai';
 
 const Dashboard = () => {
+    const location = useLocation();
+    const local = location.pathname;
+    const splitLocation = local.split("/")[2] 
+    // console.log(splitLocation)
    const [toggle, setToggle] = useState(false);
-   const [active, setActive] = useState("home");
+   const [active, setActive] = useState(splitLocation);
+
+   //// todo Load data from the server to have dynamic  isAdmin based on Data
+   const isAdmin = true;
 
     return (
     <>
@@ -34,17 +41,36 @@ const Dashboard = () => {
                    </div>
                    <div className='dashboard_menu'>
                        <ul>
-                          <li onClick={() => setActive("home")}><Link className={`flex items-center ${active === "home" ? "active" : ""}`}><BsFillHouseDoorFill /> <h2 className='ml-3'>User Home</h2></Link></li>
 
-                          <li onClick={() => setActive("reservation")}><Link className={`flex items-center ${active === "reservation" ? "active" : ""}`}><BsFillCalendarWeekFill /> <h2 className='ml-3'>reservation</h2></Link></li>
+                        {
+                            isAdmin ? <>
+                            
+                                <li onClick={() => setActive("Admin")}><Link to="/dashboard/adminHome" className={`flex items-center ${active === "Admin" ? "active" : ""}`}><BsFillHouseDoorFill /> <h2 className='ml-3'>Admin Home</h2></Link></li>
 
-                          <li onClick={() => setActive("payment")}><Link to="/dashboard/payment" className={`flex items-center ${active === "payment" ? "active" : ""}`}><GiWallet /> <h2 className='ml-3'>payment history</h2></Link></li>
+                                <li onClick={() => setActive("items")}><Link to="/dashboard/addItems" className={`flex items-center ${active === "items" ? "active" : ""}`}><FaUtensils /> <h2 className='ml-3'>add items</h2></Link></li>
 
-                          <li onClick={() => setActive("cart")}><Link to="/dashboard/myCart" className={`flex items-center ${active === "cart" ? "active" : ""}`}><HiShoppingCart /> <h2 className='ml-3'>my cart</h2></Link></li>
+                                <li onClick={() => setActive("manage")}><Link to="/dashboard/manageItems" className={`flex items-center ${active === "manage" ? "active" : ""}`}><AiOutlineBars /> <h2 className='ml-3'>manage items</h2></Link></li>
 
-                          <li onClick={() => setActive("review")}><Link to="/dashboard/addReview" className={`flex items-center ${active === "review" ? "active" : ""}`}><FaCommentDots /> <h2 className='ml-3'>add review</h2></Link></li>
+                                <li onClick={() => setActive("bookings")}><Link to="/dashboard/Bookings" className={`flex items-center ${active === "bookings" ? "active" : ""}`}><FaBook /> <h2 className='ml-3'>Manage bookings</h2></Link></li>
 
-                          <li onClick={() => setActive("booking")}><Link to="/dashboard/myBooking" className={`flex items-center ${active === "booking" ? "active" : ""}`}><BsCalendar2CheckFill /> <h2 className='ml-3'>my booking</h2></Link></li>                       
+                                <li onClick={() => setActive("users")}><Link to="/dashboard/allUsers" className={`flex items-center ${active === "users" ? "active" : ""}`}><FaUsers /> <h2 className='ml-3'>all users</h2></Link></li>
+
+                            </> : 
+                            <>
+                                <li onClick={() => setActive("home")}><Link className={`flex items-center ${active === "home" ? "active" : ""}`}><BsFillHouseDoorFill /> <h2 className='ml-3'>User Home</h2></Link></li>
+
+                                <li onClick={() => setActive("reservation")}><Link className={`flex items-center ${active === "reservation" ? "active" : ""}`}><BsFillCalendarWeekFill /> <h2 className='ml-3'>reservation</h2></Link></li>
+
+                                <li onClick={() => setActive("payment")}><Link to="/dashboard/payment" className={`flex items-center ${active === "payment" ? "active" : ""}`}><GiWallet /> <h2 className='ml-3'>payment history</h2></Link></li>
+
+                                <li onClick={() => setActive("myCart")}><Link to="/dashboard/myCart" className={`flex items-center ${active === "myCart" ? "active" : ""}`}><HiShoppingCart /> <h2 className='ml-3'>my cart</h2></Link></li>
+
+                                <li onClick={() => setActive("review")}><Link to="/dashboard/addReview" className={`flex items-center ${active === "review" ? "active" : ""}`}><FaCommentDots /> <h2 className='ml-3'>add review</h2></Link></li>
+
+                                <li onClick={() => setActive("booking")}><Link to="/dashboard/myBooking" className={`flex items-center ${active === "booking" ? "active" : ""}`}><BsCalendar2CheckFill /> <h2 className='ml-3'>my booking</h2></Link></li>  
+                            </>
+                        }
+
                        </ul>
 
                          <div className="w-full bg-[#FFF] h-[1px] my-5"></div>

@@ -2,8 +2,10 @@ import React from 'react';
 import SectionTitle from '../../Component/Shared/SectionTitle/SectionTitle';
 import { RiDeleteBin6Line } from 'react-icons/ri';
 import Swal from 'sweetalert2';
+import ChangeTitle from '../../WebsiteTitle/WebsiteTitle';
 
 const MyBooking = () => {
+      ChangeTitle("Dashboard/MyBooking");
 
     // const handleDelete = (id) =>{
     //     // console.log("hello", id)
