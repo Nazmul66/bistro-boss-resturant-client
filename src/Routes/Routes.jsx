@@ -16,6 +16,9 @@ import ErrorPage from "../ErrorPage/ErrorPage";
 import AllUsers from "../Dashboard_Component/AllUsers/AllUsers";
 import ManageItems from "../Dashboard_Component/ManageItems/ManageItems";
 import Add_item from "../Dashboard_Component/Add_item/Add_item";
+import AdminRoutes from "../PrivateRoute/AdminRoutes";
+import Update_item from "../Dashboard_Component/Update_item/Update_item";
+import PaymentCard from "../Dashboard_Component/PaymentCard/PaymentCard";
 
 const router = createBrowserRouter([
     {
@@ -62,8 +65,12 @@ const router = createBrowserRouter([
             element: <MyBooking></MyBooking>
          },
          {
-            path: "/dashboard/payment",
+            path: "/dashboard/paymentHistory",
             element: <Payment_history></Payment_history>
+         },
+         {
+            path: "/dashboard/paymentCard",
+            element: <PaymentCard></PaymentCard>
          },
          {
             path: "/dashboard/addReview",
@@ -71,11 +78,15 @@ const router = createBrowserRouter([
          },
          {
             path: "/dashboard/addItems",
-            element: <Add_item></Add_item>
+            element: <AdminRoutes><Add_item></Add_item></AdminRoutes>
          },
          {
             path: "/dashboard/manageItems",
-            element: <ManageItems></ManageItems>
+            element: <AdminRoutes><ManageItems></ManageItems></AdminRoutes>
+         },
+         { 
+            path: "/dashboard/updateItems/:id",
+            element: <AdminRoutes><Update_item></Update_item></AdminRoutes>
          },
          {
             path: "/dashboard/allUsers",

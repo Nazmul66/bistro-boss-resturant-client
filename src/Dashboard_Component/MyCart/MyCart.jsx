@@ -1,9 +1,10 @@
-import React from 'react';
+
 import { RiDeleteBin6Line } from 'react-icons/ri';
 import SectionTitle from '../../Component/Shared/SectionTitle/SectionTitle';
 import Swal from 'sweetalert2';
 import useCart from '../../CustomLoader/useCart';
 import ChangeTitle from '../../WebsiteTitle/WebsiteTitle';
+import { Link } from 'react-router-dom';
 
 const MyCart = () => {
     ChangeTitle("Dashboard/MyCart");
@@ -50,7 +51,9 @@ const MyCart = () => {
                     <div className='flex lg:flex-row flex-col justify-between items-center mb-7'>
                        <h2 className='text-2xl font-bold uppercase text-[#151515] lg:mb-0 mb-3'>Total orders: {cart.length}</h2>
                        <h4 className='text-2xl font-bold uppercase text-[#151515] lg:mb-0 mb-3'>total price: ${total.toFixed(2)}</h4>
-                        <button className='bg-[#D1A054] rounded-lg px-2 py-2 text-[#FFF]'>PAY</button>
+                        <Link to="/dashboard/paymentCard">
+                            <button className='bg-[#D1A054] rounded-lg px-2 py-2 text-[#FFF]'>PAY</button>
+                        </Link>
                     </div>
 
                     <div className="overflow-x-auto w-full">

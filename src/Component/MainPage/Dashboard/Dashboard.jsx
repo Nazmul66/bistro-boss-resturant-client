@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import { useState } from 'react'
 import './Dashboard.css'
 import { Link, Outlet, useLocation } from 'react-router-dom';
 import { GiWallet, GiHamburgerMenu } from 'react-icons/gi';
@@ -6,6 +6,7 @@ import { HiShoppingCart } from 'react-icons/hi';
 import { FaBook, FaCommentDots, FaShoppingBag, FaUsers, FaUtensils } from 'react-icons/fa';
 import { BsFillHouseDoorFill, BsFillCalendarWeekFill, BsCalendar2CheckFill, BsFillEnvelopeFill } from 'react-icons/bs';
 import { AiOutlineBars, AiOutlineMenu } from 'react-icons/ai';
+import useAdmin from '../../../CustomLoader/useAdmin';
 
 const Dashboard = () => {
     const location = useLocation();
@@ -15,8 +16,7 @@ const Dashboard = () => {
    const [toggle, setToggle] = useState(false);
    const [active, setActive] = useState(splitLocation);
 
-   //// todo Load data from the server to have dynamic  isAdmin based on Data
-   const isAdmin = true;
+   const [ isAdmin ] = useAdmin();
 
     return (
     <>

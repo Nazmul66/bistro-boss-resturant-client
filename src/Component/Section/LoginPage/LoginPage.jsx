@@ -122,7 +122,7 @@ const LoginPage = () => {
 
                 <div className="lg:p-11 p-5 lg:w-1/2 w-full">
                         <h3 className='text-[#444] text-center text-[40px] font-semibold mb-14'>Login</h3>
-                    <form action="" onSubmit={ handleLogin } >
+                     <form onSubmit={ handleLogin } >
                             <div className='mb-7'>
                                 <label htmlFor="" className='font-semibold text-[20px] mb-4 block text-[#444]'>Email</label>
                                 <input type="email" name="email" placeholder='Your Email'  className='block w-full outline-none border-[2px] border-[#E8E8E8] py-4 rounded-lg px-5 text-[16px] font-normal text-[#000]'  />

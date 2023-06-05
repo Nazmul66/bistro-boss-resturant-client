@@ -5,13 +5,15 @@ import ChangeTitle from '../../WebsiteTitle/WebsiteTitle';
 import SectionTitle from '../../Component/Shared/SectionTitle/SectionTitle';
 import { FaUserShield } from 'react-icons/fa';
 import Swal from 'sweetalert2';
+import useAxiosSecure from '../../CustomLoader/useAxiosSecure';
 
 const AllUsers = () => {
     ChangeTitle("Dashboard/AllUsers");
+    const [axiosSecure] = useAxiosSecure();
 
     const { data: users = [], refetch } = useQuery(["users"], async () => {
-        const res = await fetch("http://localhost:4000/users")
-        return res.json();
+        const res = await axiosSecure.get("/users")
+        return res.data;
     })
 
     ///
