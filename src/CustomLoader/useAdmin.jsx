@@ -9,8 +9,9 @@ const useAdmin = () => {
 
     // const token = localStorage.getItem("access_token")
 
-    const { refetch, data: isAdmin = [], isAdminLoading } = useQuery({
+    const {data: isAdmin = [], isAdminLoading } = useQuery({
         queryKey: ['isAdmin', userInfo?.email],
+        enabled: !!userInfo?.email && !!localStorage.getItem("access_token"),
         // queryFn: async () =>{
         //     const res = await fetch(`http://localhost:4000/users/admin/${userInfo?.email}`, {
         //         headers: {

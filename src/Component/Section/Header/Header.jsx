@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import{ useState } from 'react';
 import './Header.css'
 import { Link } from 'react-router-dom';
 import { HiMenuAlt3 } from 'react-icons/hi';
@@ -7,9 +7,11 @@ import { HiShoppingCart } from 'react-icons/hi';
 import { useContext } from 'react';
 import { AuthContext } from '../../../AuthProvider/AuthProvider';
 import useCart from '../../../CustomLoader/useCart';
+import useAdmin from '../../../CustomLoader/useAdmin';
 
 const Header = () => {
     const { userInfo, userOut } = useContext(AuthContext)
+    const [isAdmin] = useAdmin();
     const [cart] = useCart();
     const [toggle, setToggle] = useState(false);
 
@@ -37,6 +39,10 @@ const Header = () => {
                         <ul className='flex lg:flex-row flex-col items-center'>
                             <li><Link to="/">HOME</Link></li>
                             <li><Link to="/contact">CONTACT US</Link></li>
+                            {
+                              isAdmin ? <li><Link to="/dashboard/adminHome">DASHBOARD</Link></li> :
+                                        <li><Link to="/dashboard/userHome">DASHBOARD</Link></li>
+                            }
                             <li><Link to="/menu">OUR MENU</Link></li>
                             <li><Link to="/shop/salad">OUR SHOP</Link></li>
                             <li>

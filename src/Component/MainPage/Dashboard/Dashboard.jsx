@@ -45,7 +45,7 @@ const Dashboard = () => {
                         {
                             isAdmin ? <>
                             
-                                <li onClick={() => setActive("Admin")}><Link to="/dashboard/adminHome" className={`flex items-center ${active === "Admin" ? "active" : ""}`}><BsFillHouseDoorFill /> <h2 className='ml-3'>Admin Home</h2></Link></li>
+                                <li onClick={() => setActive("adminHome")}><Link to="/dashboard/adminHome" className={`flex items-center ${active === "adminHome" ? "active" : ""}`}><BsFillHouseDoorFill /> <h2 className='ml-3'>Admin Home</h2></Link></li>
 
                                 <li onClick={() => setActive("items")}><Link to="/dashboard/addItems" className={`flex items-center ${active === "items" ? "active" : ""}`}><FaUtensils /> <h2 className='ml-3'>add items</h2></Link></li>
 
@@ -57,7 +57,7 @@ const Dashboard = () => {
 
                             </> : 
                             <>
-                                <li onClick={() => setActive("home")}><Link className={`flex items-center ${active === "home" ? "active" : ""}`}><BsFillHouseDoorFill /> <h2 className='ml-3'>User Home</h2></Link></li>
+                                <li onClick={() => setActive("userHome")}><Link to="/dashboard/userHome" className={`flex items-center ${active === "userHome" ? "active" : ""}`}><BsFillHouseDoorFill /> <h2 className='ml-3'>User Home</h2></Link></li>
 
                                 <li onClick={() => setActive("reservation")}><Link className={`flex items-center ${active === "reservation" ? "active" : ""}`}><BsFillCalendarWeekFill /> <h2 className='ml-3'>reservation</h2></Link></li>
 

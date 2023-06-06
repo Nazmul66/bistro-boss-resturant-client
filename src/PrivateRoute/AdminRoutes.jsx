@@ -1,4 +1,4 @@
-import React, { useContext } from 'react';
+import  { useContext } from 'react';
 import { Navigate, useLocation } from 'react-router-dom';
 import { AuthContext } from '../AuthProvider/AuthProvider';
 import useAdmin from '../CustomLoader/useAdmin';
@@ -7,6 +7,7 @@ const AdminRoutes = ({ children }) => {
     const { userInfo, loading } = useContext(AuthContext);
     const [ isAdmin, isAdminLoading ] = useAdmin();
     const location = useLocation();
+    // console.log(location)
     
     if (loading || isAdminLoading){
      return <div><progress className="progress w-56"></progress></div>
