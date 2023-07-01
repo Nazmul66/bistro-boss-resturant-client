@@ -1,8 +1,8 @@
-import React, { useContext, useEffect, useState } from 'react';
+import { useContext, useEffect, useState } from 'react';
 import './LoginPage.css'
 import { Link, useLocation, useNavigate } from 'react-router-dom';
 import authImg from '../../../../public/assets/others/authentication2.png'
-import { loadCaptchaEnginge, LoadCanvasTemplate, LoadCanvasTemplateNoReload, validateCaptcha } from 'react-simple-captcha';
+import { loadCaptchaEnginge, LoadCanvasTemplate, validateCaptcha } from 'react-simple-captcha';
 import { FaGithub, FaFacebookF } from 'react-icons/fa';
 import { BsGoogle } from 'react-icons/bs';
 import { AuthContext } from '../../../AuthProvider/AuthProvider';
@@ -57,7 +57,7 @@ const LoginPage = () => {
 
             /// create login user data storage
             const saveUser = { name: googleUser.displayName, email: googleUser.email }
-            fetch("http://localhost:4000/users", {
+            fetch("https://weak-jade-pigeon-vest.cyclic.app/users", {
                 method: "POST",
                 headers:{
                     "content-type": "application/json"
@@ -161,7 +161,7 @@ const LoginPage = () => {
                                     <a ><BsGoogle className='icon' onClick={ handleGoogle } /></a>
                                     </li>
                                 </ul>
-                        </div>
+                          </div>
                 </form>
                 </div>
 

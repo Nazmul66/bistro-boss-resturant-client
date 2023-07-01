@@ -1,4 +1,4 @@
-import React, { useContext, useState } from 'react';
+import { useContext, useState } from 'react';
 import './RegisterPage.css'
 import { Link, useNavigate } from 'react-router-dom';
 import authImg from '../../../../public/assets/others/authentication2.png'
@@ -49,7 +49,7 @@ const RegisterPage = () => {
             })
             .then(() =>{
                 const saveUser = { name: name, email: email }
-                fetch("http://localhost:4000/users", {
+                fetch("https://weak-jade-pigeon-vest.cyclic.app/users", {
                     method: "POST",
                     headers:{
                         "content-type": "application/json"
@@ -90,7 +90,7 @@ const RegisterPage = () => {
     .then(result =>{
         const googleUser = result.user;
         console.log(googleUser)
-        navigate(from, { replace : true })
+        navigate('/register')
     })
     .catch(error =>{
         setError(error.message)

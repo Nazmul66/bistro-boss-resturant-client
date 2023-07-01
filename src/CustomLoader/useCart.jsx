@@ -9,7 +9,7 @@ const useCart = () =>{
 
     // const token = localStorage.getItem("access_token")
 
-    const { refetch,  data: cart = [] } = useQuery({
+    const { refetch, data: cart = [] } = useQuery({
         queryKey: ['carts', userInfo?.email],
         // enabled jeta  loading ar bodole 2ta bolean value pass kora hoyese jate 2ta true thakle loading related problem na hoy.
         enabled: !!userInfo?.email && !!localStorage.getItem("access_token") ,

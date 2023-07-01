@@ -1,4 +1,4 @@
-import React from 'react';
+
 import Cover_section from '../../Shared/Cover_section/Cover_section';
 import bgImg from '../../../../public/assets/menu/banner3.jpg'
 import bgBanner from '../../../../public/assets/home/chef-service.jpg';

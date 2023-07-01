@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react';
+import { useEffect, useState } from 'react';
 import SectionTitle from '../../Shared/SectionTitle/SectionTitle';
 import MenuCard from '../../Shared/MenuCard/MenuCard';
 import { Link } from 'react-router-dom';

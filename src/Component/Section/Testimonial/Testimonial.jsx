@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react';
+import { useEffect, useState } from 'react';
 import SectionTitle from '../../Shared/SectionTitle/SectionTitle';
 import { FaQuoteLeft } from 'react-icons/fa';
 import { Rating } from '@smastrom/react-rating'
@@ -17,7 +17,7 @@ const Testimonial = () => {
     const [review, setReview] = useState([]);
 
     useEffect(() =>{
-        fetch('http://localhost:4000/review')
+        fetch('https://weak-jade-pigeon-vest.cyclic.app/review')
         .then(res => res.json())
         .then(data => {
             // console.log(data)

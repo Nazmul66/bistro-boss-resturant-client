@@ -10,6 +10,7 @@ import useAdmin from '../../../CustomLoader/useAdmin';
 
 const Dashboard = () => {
     const location = useLocation();
+    console.log(location)
     const local = location.pathname;
     const splitLocation = local.split("/")[2] 
     // console.log(splitLocation)

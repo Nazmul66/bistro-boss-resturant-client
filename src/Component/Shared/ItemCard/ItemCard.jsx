@@ -1,4 +1,4 @@
-import React, { useContext } from 'react';
+import { useContext } from 'react';
 import { AuthContext } from '../../../AuthProvider/AuthProvider';
 import Swal from 'sweetalert2';
 import { useLocation, useNavigate } from 'react-router-dom';
@@ -7,15 +7,15 @@ import useCart from '../../../CustomLoader/useCart';
 const ItemCard = ({ items }) => {
     const {image, name, price, recipe, _id} = items;
     const { userInfo } = useContext(AuthContext)
-    // jokhon refetch korbo tokhon amr destructuring korar jonno je array je koyta data thakbe se guli soho add korte hobe na hole just akta coma use kore rakhte hobe
+    // jokhon refetch korbo tokhon amr destructuring korar jonno je array te je koyta data thakbe se guli soho add korte hobe na hole just akta coma use kore rakhte hobe
     const [ , refetch ] = useCart();
     const navigate = useNavigate();
     const location = useLocation();
 
-    const handleOrderFood = (items) =>{
+    const handleOrderFood = () =>{
         if(userInfo){
             const cartItem = { menuId: _id, name, image, price, email: userInfo?.email}
-            fetch("http://localhost:4000/carts", {
+            fetch("https://weak-jade-pigeon-vest.cyclic.app/carts", {
                 method: "POST",
                 headers: {
                     "content-type": "application/json"

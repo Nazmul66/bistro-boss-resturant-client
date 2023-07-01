@@ -18,7 +18,7 @@ const CheckOutForm = ({ cart, price }) => {
     const [transactionId, setTransactionId] = useState("")
 
     useEffect(() =>{
-     // price shadharonto useEffect a dhukar age by default 0 dekhay so tripe payment seta 0 hisebe count hoye thake tai atake error theke bachar jonno apnake price ta gater then use korte hobe then problem solve
+     // price shadharonto useEffect a dhukar age by default 0 dekhay so tripe payment seta 0 hisebe count hoye thake tai aa take error theke bachar jonno apnake price ta gater then use korte hobe then problem solve
 
        if(price > 0){
         axiosSecure.post('/create-payment-intent', {price})
@@ -56,8 +56,7 @@ const CheckOutForm = ({ cart, price }) => {
 
         setProcess(true)
         // confirm payment card
-        const {paymentIntent, error: confirmError} = await stripe.confirmCardPayment(
-            clientSecret,
+        const {paymentIntent, error: confirmError} = await stripe.confirmCardPayment( clientSecret,
             {
               payment_method: {
                 card: card,
@@ -110,10 +109,10 @@ const CheckOutForm = ({ cart, price }) => {
                         options={{
                         style: {
                             base: {
-                            fontSize: '18px',
-                            color: '#000',
+                            fontSize: '16px',
+                            color: '#424770',
                             '::placeholder': {
-                                color: '#A1A1A1',
+                                color: '#aab7c4',
                             },
                             },
                             invalid: {

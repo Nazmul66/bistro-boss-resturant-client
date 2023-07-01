@@ -1,6 +1,5 @@
-import React from 'react';
+
 import './AnotherMenu.css'
-import SectionTitle from '../../Shared/SectionTitle/SectionTitle';
 import images from '../../../../public//assets//home/featured.jpg';
 
 const AnotherMenu = () => {

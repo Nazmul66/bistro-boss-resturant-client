@@ -22,7 +22,7 @@ const MyCart = () => {
             confirmButtonText: 'Yes, delete it!'
           }).then((result) => {
             if (result.isConfirmed) {
-                fetch(`http://localhost:4000/carts/${id}`,{
+                fetch(`https://weak-jade-pigeon-vest.cyclic.app/carts/${id}`,{
                     method: "DELETE"
                 })
                 .then(res => res.json())

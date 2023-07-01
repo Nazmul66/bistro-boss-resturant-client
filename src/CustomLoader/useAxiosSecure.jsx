@@ -4,7 +4,7 @@ import { useNavigate } from 'react-router-dom';
 import { AuthContext } from '../AuthProvider/AuthProvider';
 
 const axiosSecure = axios.create({
-  baseURL: 'http://localhost:4000', // replace with your base url
+  baseURL: 'https://weak-jade-pigeon-vest.cyclic.app', // replace with your base url
 });
 
 const useAxiosSecure = () => {

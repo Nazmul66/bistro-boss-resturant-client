@@ -1,4 +1,3 @@
-import React from 'react';
 
 const MenuCard = ({ menu }) => {
     const {image, name, recipe, price} = menu;

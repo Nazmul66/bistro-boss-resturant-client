@@ -1,5 +1,4 @@
 import { useQuery } from "@tanstack/react-query";
-import { useEffect, useState } from "react"
 
 const useMenu = () =>{
     // const [menu, setMenu] = useState([]);
@@ -13,7 +12,7 @@ const useMenu = () =>{
     const {data: menu = [], refetch, isLoading: loading} = useQuery({
         queryKey: ["menu"],
         queryFn: async() =>{
-            const res = await fetch("http://localhost:4000/menu")
+            const res = await fetch("https://weak-jade-pigeon-vest.cyclic.app/menu")
             return res.json();
         }
     })

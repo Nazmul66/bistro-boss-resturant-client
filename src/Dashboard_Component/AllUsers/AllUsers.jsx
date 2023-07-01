@@ -1,5 +1,4 @@
 import { useQuery } from '@tanstack/react-query';
-import React from 'react';
 import { RiDeleteBin6Line } from 'react-icons/ri';
 import ChangeTitle from '../../WebsiteTitle/WebsiteTitle';
 import SectionTitle from '../../Component/Shared/SectionTitle/SectionTitle';
@@ -19,8 +18,7 @@ const AllUsers = () => {
     ///
     const handleMakeAdmin = (items) =>{
         // console.log( id)
-        // TODO problem
-        fetch(`http://localhost:4000/users/admin/${items._id}`, {
+        fetch(`https://weak-jade-pigeon-vest.cyclic.app/users/admin/${items._id}`, {
             method: "PATCH",
         })
         .then(res => res.json())
@@ -52,7 +50,7 @@ const AllUsers = () => {
             confirmButtonText: 'Yes, delete it!'
         }).then((result) => {
             if (result.isConfirmed) {
-                fetch(`http://localhost:4000/users/${items._id}`, {
+                fetch(`https://weak-jade-pigeon-vest.cyclic.app/users/${items._id}`, {
                     method: "DELETE"
                 })
                 .then(res => res.json())
@@ -104,7 +102,7 @@ const AllUsers = () => {
                             <td className='text-center text-[#737373] p-4 whitespace-nowrap'>
                                 {
                                     items.role === "admin" ? "admin" : 
-                                    <button onClick={()=> handleMakeAdmin(items) } className="bg-[#D1A054] text-[#FFF] px-4 py-3 rounded-[5px]"><FaUserShield  /></button>
+                                    <button onClick={()=> handleMakeAdmin(items) } className="bg-[#D1A054] text-[#FFF] px-4 py-3 rounded-[5px]"><FaUserShield /></button>
                                 }
                             </td>
                             <td className='text-center p-4 whitespace-nowrap'>

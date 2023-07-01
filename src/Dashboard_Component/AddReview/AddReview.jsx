@@ -1,4 +1,4 @@
-import React from 'react';
+
 import SectionTitle from '../../Component/Shared/SectionTitle/SectionTitle';
 import { Rating } from '@smastrom/react-rating'
 import '@smastrom/react-rating/style.css'

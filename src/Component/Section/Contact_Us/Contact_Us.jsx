@@ -1,4 +1,4 @@
-import React from 'react';
+
 import Cover_section from '../../Shared/Cover_section/Cover_section';
 import ban_img from '../../../../public/assets/contact/banner.jpg'
 import SectionTitle from '../../Shared/SectionTitle/SectionTitle';
@@ -67,22 +67,22 @@ const Contact_Us = () => {
                        <form action="">
                           <div className='flex lg:flex-row flex-col gap-7 mb-6'>
                             <div className='w-full lg:w-[50%]'>
-                                <label for="" className="font-semibold text-[20px] mb-4 block text-[#444]">Name*</label>
+                                <label className="font-semibold text-[20px] mb-4 block text-[#444]">Name*</label>
                                 <input type="text" name="name" placeholder="Enter Your name" className="block w-full outline-none border-[2px] border-[#E8E8E8] py-4 rounded-lg px-5 text-[16px] font-normal text-[#000]" />
                             </div>
                             <div className='w-full lg:w-[50%]'>
-                                <label for="" className="font-semibold text-[20px] mb-4 block text-[#444]">Email*</label>
+                                <label className="font-semibold text-[20px] mb-4 block text-[#444]">Email*</label>
                                 <input type="email" name="email" placeholder="Enter Your Email" className="block w-full outline-none border-[2px] border-[#E8E8E8] py-4 rounded-lg px-5 text-[16px] font-normal text-[#000]" />
                             </div>
                           </div>
 
                           <div className='w-full mb-6'>
-                                <label for="" className="font-semibold text-[20px] mb-4 block text-[#444]">Phone*</label>
+                                <label className="font-semibold text-[20px] mb-4 block text-[#444]">Phone*</label>
                                 <input type="text" name="phone" placeholder="Enter Your Phone Number" className="block w-full outline-none border-[2px] border-[#E8E8E8] py-4 rounded-lg px-5 text-[16px] font-normal text-[#000]" />
                             </div>
 
                             <div className='w-full'>
-                                <label for="" className="font-semibold text-[20px] mb-4 block text-[#444]">Message*</label>
+                                <label className="font-semibold text-[20px] mb-4 block text-[#444]">Message*</label>
                                 <textarea type="text" name="phone" placeholder="Enter Your Phone Number" className="block w-full outline-none border-[2px] border-[#E8E8E8] py-4 rounded-lg px-5 text-[16px] h-[300px] font-normal text-[#000]"></textarea>
                             </div>
 

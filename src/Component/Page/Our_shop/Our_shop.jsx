@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import { useState } from 'react';
 import './Our_shop.css'
 import bgImgs from '../../../../public/assets/shop/banner2.jpg'
 import Cover_section from '../../Shared/Cover_section/Cover_section';
