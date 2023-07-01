@@ -40,7 +40,7 @@ const AuthProvider = ({ children }) => {
 
               // get and set token
               if(changeState){
-                 axios.post("http://localhost:4000/jwt", {email: changeState.email})
+                 axios.post("https://weak-jade-pigeon-vest.cyclic.app/jwt", {email: changeState.email})
                  .then(data => {
                     // console.log(data.data.token)
                     localStorage.setItem("access_token", data.data.token);     
